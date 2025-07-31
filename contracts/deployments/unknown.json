@@ -1,0 +1,10 @@
+{
+  "network": "unknown",
+  "deployer": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+  "contracts": {
+    "MerkleVerifier": "0x5bb7a170Ef1Eb93BD98b9c20689B338f064Bfd8A",
+    "PaymentManager": "0x8355022EA7B8d685ad4da2a471CA8D59ef1893a7",
+    "CrossChainBridge": "0xaEB6524672d1231DfA83A4874BB2e695a19C7eEC",
+    "CrossChainBillSplitter": "0x6D1850ebE137D5DeF7984e90326B1780b452EBB8"
+  }
+}

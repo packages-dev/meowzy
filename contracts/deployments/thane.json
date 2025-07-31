@@ -1,0 +1,10 @@
+{
+  "network": "thane",
+  "deployer": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+  "contracts": {
+    "MerkleVerifier": "0x796290f0a6d249F28DA2Fd6f7B7E22552F36641b",
+    "PaymentManager": "0xb1DB6963c7040d8b0A86f9124674F02E0489E0D3",
+    "CrossChainBridge": "0x12C8a4284429FA0fD7e984beF490221053c9ecd5",
+    "CrossChainBillSplitter": "0x8F4364Ca306557129564d83c2146DAFF83c33d9A"
+  }
+}

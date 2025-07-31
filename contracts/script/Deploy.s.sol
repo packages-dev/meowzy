@@ -167,7 +167,8 @@ contract DeployScript is Script {
         else if (chainId == 80001) return "mumbai";
         else if (chainId == 42161) return "arbitrum";
         else if (chainId == 421613) return "arbitrum-goerli";
-        else if (chainId == 31337) return "localhost";
+        else if (chainId == 31337) return "Anvil";
+        else if (chainId == 202102) return "thane";
         else return "unknown";
     }
 }

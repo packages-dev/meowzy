@@ -1,0 +1,16 @@
+{
+  "transactions": [
+    {
+      "rpc": "https://subnets.avax.network/thane/testnet/rpc"
+    },
+    {
+      "rpc": "https://subnets.avax.network/thane/testnet/rpc"
+    },
+    {
+      "rpc": "https://subnets.avax.network/thane/testnet/rpc"
+    },
+    {
+      "rpc": "https://subnets.avax.network/thane/testnet/rpc"
+    }
+  ]
+}
