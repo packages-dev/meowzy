@@ -9,7 +9,15 @@ import "../src/CrossChainBillSplitter.sol";
 
 contract DeployScript is Script {
     function run() external {
-        uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+        // Use the private key from command line or environment variable
+        uint256 deployerPrivateKey;
+        try vm.envUint("PRIVATE_KEY") returns (uint256 envKey) {
+            deployerPrivateKey = envKey;
+        } catch {
+            // If PRIVATE_KEY env var not found, use the default anvil test key
+            deployerPrivateKey = 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80;
+        }
+        
         address deployer = vm.addr(deployerPrivateKey);
         
         console.log("Deploying contracts with account:", deployer);
@@ -159,6 +167,7 @@ contract DeployScript is Script {
         else if (chainId == 80001) return "mumbai";
         else if (chainId == 42161) return "arbitrum";
         else if (chainId == 421613) return "arbitrum-goerli";
+        else if (chainId == 31337) return "localhost";
         else return "unknown";
     }
 }

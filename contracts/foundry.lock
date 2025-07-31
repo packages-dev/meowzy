@@ -1,0 +1,8 @@
+{
+  "lib/openzeppelin-contracts": {
+    "rev": "c64a1edb67b6e3f4a15cca8909c9482ad33a02b0"
+  },
+  "lib/axelar-gmp-sdk-solidity": {
+    "rev": "00682b6c3db0cc922ec0c4ea3791852c93d7ae31"
+  }
+}
