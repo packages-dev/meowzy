@@ -5,6 +5,7 @@ import "forge-std/Script.sol";
 import "../src/MerkleVerifier.sol";
 import "../src/PaymentManager.sol";
 import "../src/CrossChainBridge.sol";
+import "../src/CrossChainBridgeWithSwap.sol";
 import "../src/CrossChainBillSplitter.sol";
 
 contract DeployScript is Script {
@@ -47,11 +48,18 @@ contract DeployScript is Script {
         );
         console.log("CrossChainBridge deployed at:", address(crossChainBridge));
         
-        // Deploy main CrossChainBillSplitter
+        // Deploy CrossChainBridgeWithSwap (enhanced version with 1inch)
+        CrossChainBridgeWithSwap bridgeWithSwap = new CrossChainBridgeWithSwap(
+            axelarGateway,
+            axelarGasService
+        );
+        console.log("CrossChainBridgeWithSwap deployed at:", address(bridgeWithSwap));
+        
+        // Deploy main CrossChainBillSplitter (using enhanced bridge)
         CrossChainBillSplitter billSplitter = new CrossChainBillSplitter(
             address(merkleVerifier),
             address(paymentManager),
-            address(crossChainBridge)
+            address(bridgeWithSwap) // Use the enhanced bridge with 1inch
         );
         console.log("CrossChainBillSplitter deployed at:", address(billSplitter));
         
@@ -72,6 +80,7 @@ contract DeployScript is Script {
         console.log("MerkleVerifier:", address(merkleVerifier));
         console.log("PaymentManager:", address(paymentManager));
         console.log("CrossChainBridge:", address(crossChainBridge));
+        console.log("CrossChainBridgeWithSwap:", address(bridgeWithSwap));
         console.log("CrossChainBillSplitter:", address(billSplitter));
         console.log("==========================\n");
         
@@ -84,6 +93,7 @@ contract DeployScript is Script {
             '    "MerkleVerifier": "', vm.toString(address(merkleVerifier)), '",\n',
             '    "PaymentManager": "', vm.toString(address(paymentManager)), '",\n',
             '    "CrossChainBridge": "', vm.toString(address(crossChainBridge)), '",\n',
+            '    "CrossChainBridgeWithSwap": "', vm.toString(address(bridgeWithSwap)), '",\n',
             '    "CrossChainBillSplitter": "', vm.toString(address(billSplitter)), '"\n',
             '  }\n',
             '}'
