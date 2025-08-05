@@ -1,42 +1,79 @@
-# Cross Chain Bill Splitter
+# Meowzy - DeFi Wallet with Bill Splitting & P2P Trading
 
-A comprehensive DeFi application for splitting bills across multiple blockchain networks using Merkle tree verification and cross-chain messaging.
+A comprehensive DeFi wallet application combining traditional wallet features, bill splitting across multiple blockchain networks, and peer-to-peer token swapping using atomic swaps and 1inch Fusion+.
 
 ## 🌟 Features
 
-### Smart Contract Features
-- **Cross-Chain Bill Splitting**: Split bills across Ethereum Sepolia, Polygon Mumbai, and Arbitrum Goerli
-- **Merkle Tree Verification**: Gas-optimized verification of bill authenticity using Merkle proofs
-- **Multi-Token Support**: Accept payments in various ERC20 tokens
-- **Escrow & Dispute Resolution**: Secure payment handling with dispute mechanisms
+### 💼 Wallet Features
+- **Multi-Chain Wallet**: Support for Ethereum, Polygon, Arbitrum, and more
+- **Token Management**: Send, receive, and manage ERC20 tokens
+- **Transaction History**: Complete transaction tracking across all chains
+- **Portfolio Overview**: Real-time balance and asset management
+- **1inch Integration**: Best swap rates using 1inch aggregation
+
+### 💸 Bill Splitting Features
+- **Cross-Chain Bill Splitting**: Split bills across multiple blockchain networks
+- **Merkle Tree Verification**: Gas-optimized verification of bill authenticity
+- **Multi-Token Payments**: Pay bills with ANY ERC20 token (auto-swap via 1inch)
 - **Group Management**: Create and manage groups with member permissions
 - **Three Split Types**: Equal, percentage-based, and custom amount splitting
 
-### Frontend Features
-- **Modern React/Next.js Interface**: Professional UI with Tailwind CSS
-- **Multi-Wallet Support**: Connect with MetaMask, WalletConnect, and Coinbase Wallet
-- **Real-time Updates**: Live transaction tracking and status updates
-- **Cross-Chain Visualization**: Clear indication of multi-chain operations
+### 🔄 P2P Trading Features
+- **Atomic Swap Trading**: Trustless cross-chain token swaps between users
+- **1inch Fusion+ Integration**: On-chain token swapping with optimal rates
+- **Trade Marketplace**: Browse and create swap requests
+- **HTLC Implementation**: Hash Time Lock Contracts for secure cross-chain trades
+- **Order Book**: View all pending swap requests from users
+- **Direct Negotiations**: Create custom swap offers between parties
+
+### 🎨 Frontend Features
+- **Wallet-Like Interface**: Familiar wallet UX with enhanced DeFi features
+- **Trading Dashboard**: Dedicated tab for P2P trading and swap requests
+- **Real-time Updates**: Live transaction and trade status tracking
+- **Multi-Wallet Support**: Connect with MetaMask, WalletConnect, and more
 - **Responsive Design**: Works seamlessly on desktop and mobile devices
 
-## 🏗️ Architecture
+## 🏗️ Enhanced Architecture
 
 ### Smart Contracts
 ```
 src/
-├── CrossChainBillSplitter.sol    # Main coordinator contract
-├── CrossChainBridge.sol          # Axelar Network integration
-├── PaymentManager.sol            # Payment processing & escrow
-└── MerkleVerifier.sol           # Merkle proof verification
+├── wallet/
+│   ├── MeowzyWallet.sol          # Main wallet contract
+│   ├── TokenManager.sol          # ERC20 token management  
+│   └── MultiChainBridge.sol      # Cross-chain operations
+├── trading/
+│   ├── AtomicSwapManager.sol     # HTLC atomic swaps
+│   ├── P2PTradeBook.sol          # Trade request management
+│   ├── FusionPlusIntegration.sol # 1inch Fusion+ integration
+│   └── CrossChainHTLC.sol        # Cross-chain HTLC contracts
+├── billsplit/
+│   ├── CrossChainBillSplitter.sol # Bill splitting coordinator
+│   ├── CrossChainBridgeWithSwap.sol # Enhanced bridge with 1inch
+│   ├── PaymentManager.sol         # Payment processing & escrow
+│   └── MerkleVerifier.sol        # Merkle proof verification
+└── shared/
+    ├── OneInchIntegration.sol    # 1inch aggregation
+    └── SecurityManager.sol       # Shared security features
 ```
 
-### Frontend
+### Frontend Structure
 ```
 frontend/src/
-├── components/                   # React components
-├── lib/                         # Utilities and Web3 config
-├── types/                       # TypeScript definitions
-└── app/                        # Next.js app router
+├── components/
+│   ├── wallet/                   # Wallet components
+│   ├── trading/                  # P2P trading interface
+│   ├── billsplit/               # Bill splitting UI
+│   └── shared/                  # Shared components
+├── pages/
+│   ├── wallet/                  # Main wallet interface
+│   ├── trade/                   # Trading marketplace
+│   └── bills/                   # Bill management
+├── lib/
+│   ├── atomic-swaps/            # Atomic swap utilities
+│   ├── trading/                 # Trading logic
+│   └── web3/                    # Web3 configurations
+└── types/                       # TypeScript definitions
 ```
 
 ## 🚀 Quick Start
